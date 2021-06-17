@@ -360,3 +360,15 @@ Game:
             size: 4
             output:
               type: hex
+      0xc0:
+        title: Communicate with the node [0xc0]
+        structs:
+          - name: ID
+            type: unsigned int
+            output:
+              type: hex
+              auto_zero_fill: Yes
+          - type: chars
+            size: 1
+            output:
+              type: hex
