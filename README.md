@@ -23,7 +23,7 @@ sudo python3 main.py
 ### As a developer
 
 The only special Python's packages that you need is `sniparinject`. The
-suggested version of `Python` is `>= 3.9`. Follow the commands to set up and
+suggested version of `Python` is `>= 3.10`. Follow the commands to set up and
 install this package.
 
 ```bash
