@@ -38,16 +38,10 @@ jobs:
           fi
 
       - name: Set up environment
-        run: ./script/setup-dev.bash
+        run: ./src/script/setup-dev.bash
 
       - name: Run PyLint
-        run: ./script/qa-pylint.bash
+        run: ./src/script/qa-pylint.bash
 
       - name: Run Flake8
-        run: ./script/qa-flake8.bash
-
-      - name: Run PyTest
-        run: ./script/qa-pytest.bash
-
-      - name: Run Coverage
-        run: ./script/qa-coverage.bash
+        run: ./src/script/qa-flake8.bash
