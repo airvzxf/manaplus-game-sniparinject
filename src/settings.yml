@@ -13,7 +13,7 @@ Game:
     references:
       player_actions: &node_player_actions
         0x2: 'Sit down'
-        0x3: 'Stan up'
+        0x3: 'Stand up'
         0x7: 'Attack'
       shop_options: &node_shop_options
         0x0: 'Buy'
@@ -143,7 +143,7 @@ Game:
               type: hex
               auto_zero_fill: Yes
       0xc9:
-        title: Shop shell item
+        title: Shop sell item
         structs:
           - type: chars
             size: 2
@@ -275,7 +275,7 @@ Game:
             size: 2
             output:
               type: hex
-          - name: HP
+          - name: Max HP
             type: unsigned short
           - type: chars
             size: 6
