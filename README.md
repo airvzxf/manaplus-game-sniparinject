@@ -2,7 +2,7 @@
 
 Intercept and read the network packets to find information about the game, but
 it could be useful for any network sniffer. This project is work in progress.
-Reefer to the [To-Do's][todo] list to check what is done and what is coming.
+Refer to the [To-Do's][todo] list to check what is done and what is coming.
 
 ## Run it
 
@@ -23,7 +23,7 @@ sudo python3 main.py
 ### As a developer
 
 The only special Python's packages that you need is `sniparinject`. The
-suggested version of `Python` is `>= 3.10`. Follow the commands to set up and
+minimum version of `Python` is `>= 3.11`. Follow the commands to set up and
 install this package.
 
 ```bash
@@ -63,18 +63,38 @@ Network:
   interface: enp4s0
 
 Server:
-  host: 52.174.196.146
+  protocol: tcp
+  ip: 52.174.196.146
   port: 5122
 ```
+
+`protocol` is optional, it could be `tcp` (default) or `udp`.
 
 Execute the application:
 
 ```bash
-# Go to the source code directory.
-cd src
-# Execute with root permissions the main script.
-sudo python3 main.py
+# Execute with root permissions the main script. It finds `settings.yml`
+# next to `main.py`, so it runs from any directory.
+sudo python3 src/main.py
 ```
+
+### Without root: from a capture file
+
+Record the game with `tshark` (it does not need root when your user is in the
+`wireshark` group), then parse the capture with `Network.offline`. A relative
+path is relative to `settings.yml`.
+
+```bash
+tshark -i enp4s0 -f 'tcp port 5122' -w src/capture.pcapng
+```
+
+```yaml
+Network:
+  offline: capture.pcapng
+```
+
+The game does not encrypt its traffic, so a capture can hold your account
+data: keep it out of the repository (`*.pcap` and `*.pcapng` are ignored).
 
 ### Example
 
@@ -84,7 +104,7 @@ sudo python3 main.py
 
 Looking for add, modify or remove parse rules. It does not need to modify any
 file in the source code. It has the `./src/settings.yml` file which is able to
-add, modify or remove any rule, please reefer to the file in this project to
+add, modify or remove any rule, please refer to the file in this project to
 understand in deep.
 
 The settings file is little complex, the better documentation is in the

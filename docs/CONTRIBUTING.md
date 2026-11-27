@@ -50,7 +50,7 @@ This section is coming soon.
 ### Local
 
 The only special Python's packages that you need is `sniparinject`. The
-suggested version of `Python` is `>= 3.9`. Follow the commands to set up and
+minimum version of `Python` is `>= 3.11`. Follow the commands to set up and
 install this package.
 
 ```bash
@@ -72,7 +72,7 @@ sudo python3 main.py
 deactivate
 ```
 
-[new-issue]: https://github.com/airvzxf/bose-connect-app-linux/issues/new
+[new-issue]: https://github.com/airvzxf/manaplus-game-sniparinject/issues/new
 
 [fork-a-repo]: https://help.github.com/articles/fork-a-repo/
 

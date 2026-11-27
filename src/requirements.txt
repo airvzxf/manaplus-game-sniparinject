@@ -1,5 +1,1 @@
-flake8==7.3.0
-sniparinject>=0.0.0.dev2
-pip>=21.1.2
-pylint>=4.0.4
-setuptools>=80.10.2
+sniparinject>=0.0.0.dev9
