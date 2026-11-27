@@ -78,6 +78,24 @@ Execute the application:
 sudo python3 src/main.py
 ```
 
+### Without root: from a capture file
+
+Record the game with `tshark` (it does not need root when your user is in the
+`wireshark` group), then parse the capture with `Network.offline`. A relative
+path is relative to `settings.yml`.
+
+```bash
+tshark -i enp4s0 -f 'tcp port 5122' -w src/capture.pcapng
+```
+
+```yaml
+Network:
+  offline: capture.pcapng
+```
+
+The game does not encrypt its traffic, so a capture can hold your account
+data: keep it out of the repository (`*.pcap` and `*.pcapng` are ignored).
+
 ### Example
 
 [![asciicast][ascii-mana-image]][ascii-mana-link]
