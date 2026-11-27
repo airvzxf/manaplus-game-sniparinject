@@ -1,7 +1,7 @@
 %YAML 1.1
 ---
 Network:
-  interface: enp4s0
+  interface: wlan0
 
 Server:
   ip: 52.174.196.146
@@ -19,8 +19,35 @@ Game:
         0x0: 'Buy'
         0x1: 'Sell'
     actions:
+      0x72:
+        title: Map server login
+        structs:
+          - name: Account ID
+            type: unsigned int
+            output:
+              type: hex
+              auto_zero_fill: Yes
+          - name: Character ID
+            type: unsigned int
+            output:
+              type: hex
+              auto_zero_fill: Yes
+          - name: Session
+            type: unsigned int
+            output:
+              type: hex
+              auto_zero_fill: Yes
+          - name: Client tick
+            type: unsigned int
+          - name: Sex
+            type: unsigned char
       0x7d:
         title: Scenario change
+      0x7e:
+        title: Client tick
+        structs:
+          - name: Tick
+            type: unsigned int
       0x85:
         title: Player move to
         display_message: Yes
@@ -64,6 +91,15 @@ Game:
             output:
               type: hex
               auto_zero_fill: Yes
+      0x96:
+        title: Whisper
+        variable_length: Yes
+        structs:
+          - name: To
+            type: chars
+            size: 24
+            output:
+              type: text
       0x9b:
         title: Player Smash with object
         structs:
@@ -180,6 +216,20 @@ Game:
         0x445: 'White Smile'
         0x447: 'White Bell'
     actions:
+      0x73:
+        title: Map login accepted
+        structs:
+          - name: Server tick
+            type: unsigned int
+          - name: Position
+            type: chars
+            size: 3
+            output:
+              type: hex
+          - type: chars
+            size: 2
+            output:
+              type: hex
       0x78:
         title: NPC Info
         structs:
@@ -360,6 +410,19 @@ Game:
             size: 4
             output:
               type: hex
+      0x95:
+        title: Being name
+        structs:
+          - name: ID
+            type: unsigned int
+            output:
+              type: hex
+              auto_zero_fill: Yes
+          - name: Name
+            type: chars
+            size: 24
+            output:
+              type: text
       0xc0:
         title: Communicate with the node [0xc0]
         structs:
@@ -372,3 +435,9 @@ Game:
             size: 1
             output:
               type: hex
+      0x211:
+        title: Online players
+        variable_length: Yes
+      0x8000:
+        title: Communicate with the node [0x8000]
+        variable_length: Yes
