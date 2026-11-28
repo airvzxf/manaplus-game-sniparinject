@@ -1,1 +1,1 @@
-sniparinject>=1.0.0
+sniparinject>=1.0.1
